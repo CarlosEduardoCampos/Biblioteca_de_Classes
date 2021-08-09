@@ -1,4 +1,6 @@
-<?php 
+<?php
+    require_once("buscaClass.php");
+
     class Anuncio{
         //Atributos
         private $idAnuncio;
@@ -111,5 +113,58 @@
 
             return $this;
         }
-    }
+
+        //Cria array para tratamento de erros
+        public function arrayErros($e)
+        {
+            return(array(
+                    'mensagem' => $e->getMessage(),//mensagem de erro
+                    'linha'    => $e->getLine(),   //linha do erro
+                    'file'     => $e->getFile(),   //arquivo do erro
+                    'code'     => $e->getCode()    //numero do erro
+                )//fim array
+            );
+        }
+
+        public function saveCadAnuncio()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->select("CALL spCadAnuncio(:ATTRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4)",
+                        array(
+                            ":ATRIBUTO1" => $this->getTxtProprietario(),
+                            ":ATRIBUTO2" => $this->getTxtPhone(),
+                            ":ATRIBUTO3" => $this->getTxtNomeAnuncio(),
+                            ":ATRIBUTO4" => $this->getTxtDescription()
+                        )//fim do array
+                    )//fim do select
+                );//fim do return
+            }//fim do try
+
+            catch (Exception $e){
+                return json_encode(arrayErros($e));
+            }//fim do catch
+        }//fim função saveCadAnucino()
+
+        public function saveUpdAnuncio()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->select("CALL spUpdAnuncio(:ATRIBUTO0, :ATTRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4)",
+                        array(
+                            ":ATRIBUTO0" => $this->getIdAnuncio(),
+                            ":ATRIBUTO1" => $this->getTxtProprietario(),
+                            ":ATRIBUTO2" => $this->getTxtPhone(),
+                            ":ATRIBUTO3" => $this->getTxtNomeAnuncio(),
+                            ":ATRIBUTO4" => $this->getTxtDescription()
+                        )//fim do array
+                    )//fim do select
+                );//fim do return
+            }//fim do try
+
+            catch (Exception $e){
+                return json_encode(arrayErros($e));
+            }//fim do catch
+        }//fim da função saveUpdAnuncio()
+    }//fim da class
 ?>
