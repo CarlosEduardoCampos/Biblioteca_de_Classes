@@ -42,5 +42,55 @@
 
                 return $this;
         }
+
+        //Cria array para tratamento de erros
+        public function arrayErros($e)
+        {
+            return(array(
+                    'mensagem' => $e->getMessage(),//mensagem de erro
+                    'linha'    => $e->getLine(),   //linha do erro
+                    'file'     => $e->getFile(),   //arquivo do erro
+                    'code'     => $e->getCode()    //numero do erro
+                )//fim array
+            );
+        }
+
+        //Faz insert no banco de dados
+        public function saveCadPropertyType()
+        {
+            try {
+                $sql = new Sql();
+                return($sql->select("CALL spCadPropertyType(:ATRIBUTO1)",
+                        array(
+                            ":ATRIBUTO1" => getTxtName()
+                        )//fim array
+                    )//fim select
+                );//fim retunr
+            }//fim try
+            
+            catch (Exception $e) {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função saveCadPropertyType();
+
+        //Faz update no bancode dados
+        public function saveUpdPropertyType()
+        {
+            try {
+                $sql = new Sql();
+                return($sql->select("CALL spUpdPropertyType(:ATRIBUTO0, :ATRIBUTO1)",
+                        array(
+                            ":ATRIBUTO0" => getIdPropertyType(),
+                            ":ATRIBUTO1" => getTxtName()
+                        )//fim array
+                    )//fim select
+                );//fim retunr
+            }//fim try
+            
+            catch (Exception $e) {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função saveUpdPropertyType();
+
     }
 ?>

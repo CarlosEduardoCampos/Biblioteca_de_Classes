@@ -57,6 +57,19 @@
             );
         }
 
+        //Cria array para tratamento de erros
+        public function arrayErros($e)
+        {
+            return(array(
+                    'mensagem' => $e->getMessage(),//mensagem de erro
+                    'linha'    => $e->getLine(),   //linha do erro
+                    'file'     => $e->getFile(),   //arquivo do erro
+                    'code'     => $e->getCode()    //numero do erro
+                )//fim array
+            );
+        }
+
+        //Faz insert no banco de dados
         public function saveCadPhotoProperty(){
             try {
                 $sql = new Sql();
@@ -73,6 +86,7 @@
             }//fim catch
         }//fim função saveCadPhotoProperty()
 
+        //Faz update no bancode dados
         public function saveUpdPhotoProperty(){
             try {
                 $sql = new Sql();

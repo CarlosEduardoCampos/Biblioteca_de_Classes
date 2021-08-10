@@ -8,7 +8,7 @@
          */ 
         public function getIdReference()
         {
-                return $this->idReference;
+            return $this->idReference;
         }
 
         /**
@@ -18,9 +18,9 @@
          */ 
         public function setIdReference($idReference)
         {
-                $this->idReference = $idReference;
+            $this->idReference = $idReference;
 
-                return $this;
+            return $this;
         }
 
         /**
@@ -28,7 +28,7 @@
          */ 
         public function getBoolUsed()
         {
-                return $this->boolUsed;
+            return $this->boolUsed;
         }
 
         /**
@@ -38,10 +38,58 @@
          */ 
         public function setBoolUsed($boolUsed)
         {
-                $this->boolUsed = $boolUsed;
+            $this->boolUsed = $boolUsed;
 
-                return $this;
+            return $this;
         }
     }
 
+    //Cria array para tratamento de erros
+    public function arrayErros($e)
+    {
+        return(array(
+                'mensagem' => $e->getMessage(),//mensagem de erro
+                'linha'    => $e->getLine(),   //linha do erro
+                'file'     => $e->getFile(),   //arquivo do erro
+                'code'     => $e->getCode()    //numero do erro
+            )//fim array
+        );
+    }
+
+    //Faz insert no banco de dados
+    public function saveCadReference()
+    {
+        try {
+            $sql = new Sql();
+            return($sql->select("CALL spCadReference(:ATRIBUTO1)",
+                    array(
+                        ":ATRIBUTO1" => getBoolUsed()         
+                    )//fim array
+                )//fim select
+            );//fim return
+        }//fim try
+
+        catch (Exception $e) {
+            return json_encode(arrayErros($e));
+        }//fim catch
+    }//fim função saveCadReference()
+
+    //Faz update no bancode dados
+    public function saveUpdReference()
+    {
+        try {
+            $sql = new Sql();
+            return($sql->select("CALL spUpdReference(:ATRIBUTO0, :ATRIBUTO1)",
+                    array(
+                        ":ATRIBUTO0" => getIdReference(),
+                        ":ATRIBUTO1" => getBoolUsed()               
+                    )//fim array
+                )//fim select
+            );//fim return
+        }//fim try
+
+        catch (Exception $e) {
+            return json_encode(arrayErros($e));
+        }//fim catch
+    }//fim função saveUpdReference()
 ?>

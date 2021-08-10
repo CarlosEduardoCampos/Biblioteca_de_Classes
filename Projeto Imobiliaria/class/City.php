@@ -77,6 +77,7 @@
 			);
         }
 
+        //Faz insert no banco de dados
 		public function saveCDCity()
 		{
 			try {
@@ -95,6 +96,7 @@
 			}//fim do catch
 		}//fim da função saveCadCity()
 
+		//Faz update no bancode dados
 		public function saveUpdCity()
 		{
 			try {

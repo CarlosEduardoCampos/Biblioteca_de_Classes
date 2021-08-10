@@ -97,6 +97,7 @@
             );
         }
 
+        //Faz insert no banco de dados
         public function saveCadOwner()
         {
             try {
@@ -116,6 +117,7 @@
             }//fim catch
         }//fim função saveCadOwner();
 
+        //Faz update no bancode dados
         public function saveUpdOwner()
         {
             try {

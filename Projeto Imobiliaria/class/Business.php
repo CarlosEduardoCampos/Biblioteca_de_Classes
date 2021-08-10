@@ -55,6 +55,7 @@
             );
         }
 
+        //Faz insert no banco de dados
         public function saveCadBusiness(){
             try {
                     $sql = new Sql();
@@ -71,6 +72,7 @@
             }
         }
 
+        //Faz update no bancode dados
         public function saveUpdBusiness(){
             try {
                     $sql = new Sql();

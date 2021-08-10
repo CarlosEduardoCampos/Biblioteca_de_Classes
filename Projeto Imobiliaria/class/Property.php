@@ -112,5 +112,62 @@
 
             return $this;
         }
+
+        //Cria array para tratamento de erros
+        public function arrayErros($e)
+        {
+            return(array(
+                    'mensagem' => $e->getMessage(),//mensagem de erro
+                    'linha'    => $e->getLine(),   //linha do erro
+                    'file'     => $e->getFile(),   //arquivo do erro
+                    'code'     => $e->getCode()    //numero do erro
+                )//fim array
+            );
+        }
+
+        //Faz insert no banco de dados
+        public function saveCadProperty()
+        {
+            try {
+                $sql = new Sql();
+                return($sql->select("CALL spCadProperty(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4)",
+                        array(
+                            ":ATRIBUTO1" => getTxtNameProperty(),
+                            ":ATRIBUTO2" => getTxtDescription(),
+                            ":ATRIBUTO3" => getBoolStatus(),
+                            ":ATRIBUTO4" => getNumPrice()
+
+                        )//fim array
+                    )//fim select
+                );//fim retunr
+            }//fim try
+            
+            catch (Exception $e) {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função saveCadProper();
+
+        //Faz update no bancode dados
+        public function saveUpdProperty()
+        {
+            try {
+                $sql = new Sql();
+                return($sql->select("CALL spUpdProperty(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4)",
+                        array(
+                            ":ATRIBUTO0" => getIdProperty(),
+                            ":ATRIBUTO1" => getTxtNameProperty(),
+                            ":ATRIBUTO2" => getTxtDescription(),
+                            ":ATRIBUTO3" => getBoolStatus(),
+                            ":ATRIBUTO4" => getNumPrice()
+
+                        )//fim array
+                    )//fim select
+                );//fim retunr
+            }//fim try
+            
+            catch (Exception $e) {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função saveCadProper();
     }
 ?>

@@ -126,6 +126,7 @@
             );
         }
 
+        //Faz insert no banco de dados
         public function saveCadAnuncio()
         {
             try{
@@ -146,6 +147,7 @@
             }//fim do catch
         }//fim função saveCadAnucino()
 
+        //Faz update no bancode dados
         public function saveUpdAnuncio()
         {
             try{

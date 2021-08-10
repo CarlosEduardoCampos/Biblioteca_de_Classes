@@ -10,7 +10,7 @@
          */ 
         public function getIdUsers()
         {
-                return $this->idUsers;
+            return $this->idUsers;
         }
 
         /**
@@ -20,9 +20,9 @@
          */ 
         public function setIdUsers($idUsers)
         {
-                $this->idUsers = $idUsers;
+            $this->idUsers = $idUsers;
 
-                return $this;
+            return $this;
         }
 
         /**
@@ -30,7 +30,7 @@
          */ 
         public function getTxtName()
         {
-                return $this->txtName;
+            return $this->txtName;
         }
 
         /**
@@ -40,9 +40,9 @@
          */ 
         public function setTxtName($txtName)
         {
-                $this->txtName = $txtName;
+            $this->txtName = $txtName;
 
-                return $this;
+            return $this;
         }
 
         /**
@@ -50,7 +50,7 @@
          */ 
         public function getTxtLogin()
         {
-                return $this->txtLogin;
+            return $this->txtLogin;
         }
 
         /**
@@ -60,9 +60,9 @@
          */ 
         public function setTxtLogin($txtLogin)
         {
-                $this->txtLogin = $txtLogin;
+            $this->txtLogin = $txtLogin;
 
-                return $this;
+            return $this;
         }
 
         /**
@@ -70,7 +70,7 @@
          */ 
         public function getTxPassword()
         {
-                return $this->txPassword;
+             return $this->txPassword;
         }
 
         /**
@@ -80,10 +80,61 @@
          */ 
         public function setTxPassword($txPassword)
         {
-                $this->txPassword = $txPassword;
+            $this->txPassword = $txPassword;
 
-                return $this;
+            return $this;
         }
-    }
+
+        //Cria array para tratamento de erros
+        public function arrayErros($e)
+        {
+            return(array(
+                    'mensagem' => $e->getMessage(),//mensagem de erro
+                    'linha'    => $e->getLine(),   //linha do erro
+                    'file'     => $e->getFile(),   //arquivo do erro
+                    'code'     => $e->getCode()    //numero do erro
+                )//fim array
+            );
+        }
+
+         //Faz insert no banco de dados
+        public function saveCadUsers()
+        {
+            try {
+                $sql = new Sql();
+                return($sql->select("Call spCadUsers(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3)",
+                        array(
+                            ":ATRIBUTO1" => getTxtName(),
+                            ":ATRIBUTO2" => getTxtLogin(),
+                            ":ATRIBUTO3" => getTxPassword()
+                        )//fim array
+                    )//fim select
+                )//fim return
+            }//fim try
+            catch (Exception $e) {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função saveCadUsers()
+
+        //Faz update no bancode dados
+        public function saveUpdUsers()
+        {
+            try {
+                $sql = new Sql();
+                return($sql->select("Call spUpdUsers(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3)",
+                        array(
+                            ":ATRIBUTO0" => getIdUsers(),
+                            ":ATRIBUTO1" => getTxtName(),
+                            ":ATRIBUTO2" => getTxtLogin(),
+                            ":ATRIBUTO3" => getTxPassword()
+                        )//fim array
+                    )//fim select
+                )//fim return
+            }//fim try
+            catch (Exception $e) {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função saveUpdUsers()
+    }//fim class
 
 ?>
