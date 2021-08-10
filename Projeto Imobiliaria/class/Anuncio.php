@@ -126,6 +126,21 @@
             );
         }
 
+        //Função devolve um array com todos os dados do banco de dados da tabela Anuncio
+        static function listAllAnuncio()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblAnuncio;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllAnuncio()
+
         //Faz insert no banco de dados
         public function saveCadAnuncio()
         {

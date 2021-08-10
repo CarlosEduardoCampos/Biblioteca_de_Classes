@@ -58,7 +58,7 @@
         }
 
         //Cria array para tratamento de erros
-        public function arrayErros($e)
+        /*public function arrayErros($e)
         {
             return(array(
                     'mensagem' => $e->getMessage(),//mensagem de erro
@@ -67,7 +67,22 @@
                     'code'     => $e->getCode()    //numero do erro
                 )//fim array
             );
-        }
+        }*/
+
+        //Função devolve um array com todos os dados do banco de dados da tabela PhotoProperty
+        static function listAllPhotoProperty()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblPhotoProperty;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllPhotoProperty()
 
         //Faz insert no banco de dados
         public function saveCadPhotoProperty(){

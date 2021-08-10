@@ -55,6 +55,21 @@
             );
         }
 
+        //Função devolve um array com todos os dados do banco de dados da tabela PropertyType
+        static function listAllPropertyType()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblPropertyType;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllPropertyType()
+
         //Faz insert no banco de dados
         public function saveCadPropertyType()
         {

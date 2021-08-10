@@ -97,6 +97,21 @@
             );
         }
 
+        //Função devolve um array com todos os dados do banco de dados da tabela Owner
+        static function listAllOwner()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblOwner;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllOwner()
+
         //Faz insert no banco de dados
         public function saveCadOwner()
         {

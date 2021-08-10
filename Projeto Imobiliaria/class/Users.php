@@ -97,6 +97,21 @@
             );
         }
 
+        //Função devolve um array com todos os dados do banco de dados da tabela Users
+        static function listAllUsers()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblUsers;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllUsers()
+
          //Faz insert no banco de dados
         public function saveCadUsers()
         {
@@ -109,7 +124,7 @@
                             ":ATRIBUTO3" => getTxPassword()
                         )//fim array
                     )//fim select
-                )//fim return
+                );//fim return
             }//fim try
             catch (Exception $e) {
                 return json_encode(arrayErros($e));
@@ -129,7 +144,7 @@
                             ":ATRIBUTO3" => getTxPassword()
                         )//fim array
                     )//fim select
-                )//fim return
+                );//fim return
             }//fim try
             catch (Exception $e) {
                 return json_encode(arrayErros($e));

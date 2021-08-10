@@ -10,7 +10,7 @@
         //Objetos
         //private $fkRef = new Reference;
         //private $fkTipoNegocio = new Business;
-        //private $fkCidade = new City;
+        //private $fkCidade = new Property;
         //private $fkProprietario = new Owner;
 
         /**
@@ -124,6 +124,21 @@
                 )//fim array
             );
         }
+
+        //Função devolve um array com todos os dados do banco de dados da tabela Property
+        static function listAllProperty()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblProperty;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllProperty()
 
         //Faz insert no banco de dados
         public function saveCadProperty()

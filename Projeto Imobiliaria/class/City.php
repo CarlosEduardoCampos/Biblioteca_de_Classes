@@ -77,6 +77,21 @@
 			);
         }
 
+        //Função devolve um array com todos os dados do banco de dados da tabela City
+        static function listAllCity()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblCity;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllCity()
+
         //Faz insert no banco de dados
 		public function saveCDCity()
 		{
@@ -115,6 +130,5 @@
 				return json_encode(arrayErros($e));
 			}//fim do catch
 		}//fim da função saveCity()
-
     }//fim da class
 ?>

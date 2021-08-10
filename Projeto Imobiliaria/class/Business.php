@@ -55,6 +55,21 @@
             );
         }
 
+        //Função devolve um array com todos os dados do banco de dados da tabela Anuncio
+        static function listAllBusiness()
+        {
+            try
+            {
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblBusiness;");
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função listAllBusiness()
+
         //Faz insert no banco de dados
         public function saveCadBusiness(){
             try {
@@ -70,7 +85,7 @@
             catch (Exception $e) {
                 return json_encode(arrayErros($e));
             }
-        }
+        }//fim função saveCadBusiness()
 
         //Faz update no bancode dados
         public function saveUpdBusiness(){
@@ -87,7 +102,7 @@
 
             catch (Exception $e) {
                 return json_encode(arrayErros($e));
-            }
-        }
+            }//fim catch
+        }//fim função saveUpdBusiness()
     }
 ?>
