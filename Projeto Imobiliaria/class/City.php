@@ -77,6 +77,25 @@
 			);
         }
 
+        //Função de busca por meio do id da tabela
+        public function getCity()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblCity WHERE idCity = :ID;",
+                        array(
+                            ":ID" => $this->getIdCity()
+                        )//fim array
+                    )//fim função select
+                );//fim return
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função getCity()
+
         //Função devolve um array com todos os dados do banco de dados da tabela City
         static function listAllCity()
         {
@@ -93,7 +112,7 @@
         }//fim função listAllCity()
 
         //Faz insert no banco de dados
-		public function saveCDCity()
+		public function saveCadCity()
 		{
 			try {
 				$sql = new Sql();

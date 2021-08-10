@@ -55,6 +55,25 @@
             );
         }
 
+        //Função de busca por meio do id da tabela
+        public function getPropertyType()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblPropertyType WHERE idPropertyType = :ID;",
+                        array(
+                            ":ID" => $this->getIdPropertyType()
+                        )//fim array
+                    )//fim função select
+                );//fim return
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função getPropertyType()
+
         //Função devolve um array com todos os dados do banco de dados da tabela PropertyType
         static function listAllPropertyType()
         {

@@ -8,7 +8,7 @@
 			//faz a indentação do nome com o tipo de arquivo
 			if (file_exists("$nomeClass.php")
             {
-				require_once("$nomeClass.php");
+				require_once("$nomeClass.php")
 			}
 		}
 	);

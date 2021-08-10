@@ -55,6 +55,25 @@
             );
         }
 
+        //Função de busca por meio do id da tabela
+        public function getReference()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblReference WHERE idReference = :ID;",
+                        array(
+                            ":ID" => $this->getIdReference()
+                        )//fim array
+                    )//fim função select
+                );//fim return
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função getReference()
+
         //Função devolve um array com todos os dados do banco de dados da tabela Reference
         static function listAllReference()
         {

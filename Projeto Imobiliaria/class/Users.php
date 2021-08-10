@@ -112,7 +112,26 @@
             }//fim catch
         }//fim função listAllUsers()
 
-         //Faz insert no banco de dados
+        //Função de busca por meio do id da tabela
+        public function getUsers()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblUsers WHERE idUsers = :ID;",
+                        array(
+                            ":ID" => $this->getIdUsers()
+                        )//fim array
+                    )//fim função select
+                );//fim return
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função getUsers()
+
+        //Faz insert no banco de dados
         public function saveCadUsers()
         {
             try {

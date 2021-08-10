@@ -97,6 +97,25 @@
             );
         }
 
+        //Função de busca por meio do id da tabela
+        public function getOwner()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblOwner WHERE idOwner = :ID;",
+                        array(
+                            ":ID" => $this->getIdOwner()
+                        )//fim array
+                    )//fim função select
+                );//fim return
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função getOwner()
+
         //Função devolve um array com todos os dados do banco de dados da tabela Owner
         static function listAllOwner()
         {

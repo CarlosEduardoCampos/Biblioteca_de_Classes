@@ -55,6 +55,25 @@
             );
         }
 
+        //Função de busca por meio do id da tabela
+        public function getBusiness()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblBusiness WHERE idBusiness = :ID;",
+                        array(
+                            ":ID" => $this->getIdBusiness()
+                        )//fim array
+                    )//fim função select
+                );//fim return
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função getBusiness()
+
         //Função devolve um array com todos os dados do banco de dados da tabela Anuncio
         static function listAllBusiness()
         {

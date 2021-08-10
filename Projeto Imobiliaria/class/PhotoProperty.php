@@ -1,5 +1,5 @@
 <?php
-    class PhotoProperty extends Property{
+    class PhotoPropertyroperty extends Property{
         //Atributos
         private $idPhoto;
         private $txtName;
@@ -57,6 +57,25 @@
             );
         }
 
+        //Função de busca por meio do id da tabela
+        public function getPhotoProperty()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblPhotoProperty WHERE idPhoto = :ID;",
+                        array(
+                            ":ID" => $this->getIdPhoto()
+                        )//fim array
+                    )//fim função select
+                );//fim return
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                return json_encode(arrayErros($e));
+            }//fim catch
+        }//fim função getPhotoProperty()
+
         //Cria array para tratamento de erros
         /*public function arrayErros($e)
         {
@@ -69,26 +88,26 @@
             );
         }*/
 
-        //Função devolve um array com todos os dados do banco de dados da tabela PhotoProperty
-        static function listAllPhotoProperty()
+        //Função devolve um array com todos os dados do banco de dados da tabela PhotoPropertyroperty
+        static function listAllPhotoPropertyroperty()
         {
             try
             {
                 $sql = new Sql();
-                return $sql->select("SELECT * FROM tblPhotoProperty;");
+                return $sql->select("SELECT * FROM tblPhotoPropertyroperty;");
             }//fim try
             
             catch (Exception $e)
             {
                 return json_encode(arrayErros($e));
             }//fim catch
-        }//fim função listAllPhotoProperty()
+        }//fim função listAllPhotoPropertyroperty()
 
         //Faz insert no banco de dados
-        public function saveCadPhotoProperty(){
+        public function saveCadPhotoPropertyroperty(){
             try {
                 $sql = new Sql();
-                return($sql->select("CALL spCadPhotoProperty(:ATRIBUTO1)", 
+                return($sql->select("CALL spCadPhotoPropertyroperty(:ATRIBUTO1)", 
                         array(
                             ":ATRIBUTO1" => getTxtName()
                         )//fim array
@@ -99,13 +118,13 @@
             catch (Exception $e) {
                 return json_encode(arrayErros($e));
             }//fim catch
-        }//fim função saveCadPhotoProperty()
+        }//fim função saveCadPhotoPropertyroperty()
 
         //Faz update no bancode dados
-        public function saveUpdPhotoProperty(){
+        public function saveUpdPhotoPropertyroperty(){
             try {
                 $sql = new Sql();
-                return($sql->select("CALL spUpdPhotoProperty(:ATRIBUTO0,:ATRIBUTO1)", 
+                return($sql->select("CALL spUpdPhotoPropertyroperty(:ATRIBUTO0,:ATRIBUTO1)", 
                         array(
                             ":ATRIBUTO0" => getIdPhoto(),
                             ":ATRIBUTO1" => getTxtName()
@@ -117,6 +136,6 @@
             catch (Exception $e) {
                 return json_encode(arrayErros($e));
             }//fim catch
-        }//fim função saveUpdPhotoProperty()
+        }//fim função saveUpdPhotoPropertyroperty()
     }
 ?>
