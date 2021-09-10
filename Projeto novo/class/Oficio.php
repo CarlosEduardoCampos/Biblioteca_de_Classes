@@ -196,7 +196,8 @@
         public function static listAll()
         {
             try{
-                echo "listAll()";
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblOficio;");
             }//fim do try
 
             catch(Exception $e)
