@@ -159,7 +159,11 @@
         public function setDadosForm($post)
         {
             try{
-                echo "SETDADOSFORM()";
+                $this->setTxtNome        ($post['txtNome']);
+                $this->setTxtDescricao   ($post['txtDescricao']);
+                $this->setDtPostagem     ($post['dtPostagem']);
+                $this->setIntStatus      ($post['intStatus']);
+                $this->setTxtNomeArquivo ($post['txtNomeArquivo']);
             }//fim do try
 
             catch(Exception $e)

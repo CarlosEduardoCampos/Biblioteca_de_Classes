@@ -160,7 +160,12 @@
         public function setDadosForm($post)
         {
             try{
-                echo "SETDADOSFORM()";
+                $this->setTxtNomeOficio   ($post['txtNomeOficio']);
+                $this->setTxtObjetoOficio ($post['txtObjetoOficio']);
+                $this->setDtPostagem      ($post['dtPostagem']);
+                $this->setTxtNomeArquivo  ($post['txtNomeArquivo']);
+                $this->setVereador        ($post['Vereador']);
+                $this->setFkResponsavel   ($post['fkResponsavel']);
             }//fim do try
 
             catch(Exception $e)

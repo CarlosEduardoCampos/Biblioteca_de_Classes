@@ -1,0 +1,11 @@
+<?php 
+    require_once('ProjetosLei.php');
+    require_once('Indicadores.php');
+    require_once('Oficio.php');
+    require_once('Mocao.php');
+    require_once('Atas.php');
+    require_once('User.php');
+    //
+    require_once('Sql.php');
+    require_once('Msg.php');
+?>

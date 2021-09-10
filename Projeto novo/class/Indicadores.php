@@ -138,7 +138,11 @@
         public function setDadosForm($post)
         {
             try{
-                echo "SETDADOSFORM()";
+                $this->setTxtNomeIndicacao ($post['txtNomeIndicacao']);
+                $this->setTxtDescricao     ($post['txtDescricao']);
+                $this->setDtDataPostagem   ($post['dtDataPostagem']);
+                $this->setTxtNomeArquivo   ($post['txtNomeArquivo']);
+                $this->setFkResponsavel    ($post['fkResponsavel']);
             }//fim do try
 
             catch(Exception $e)
