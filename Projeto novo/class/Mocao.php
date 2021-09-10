@@ -199,7 +199,13 @@
         public function delete()
         {
             try{
-                echo "DELETE()";
+                $sql = new Sql();
+                return($sql->query("DELETE FROM tblMocao WHERE idMocao = :ID", 
+                        array(
+                            ':ID' => $this->getIdMocao()
+                        )//fim array
+                    )//fim query
+                );//fim return
             }//fim do try
 
             catch(Exception $e)

@@ -221,7 +221,13 @@
         public function delete()
         {
             try{
-                echo "DELETE()";
+                $sql = new Sql();
+                return($sql->query("DELETE FROM tblIndicadores WHERE idIndicadores = :ID", 
+                        array(
+                            ':ID' => $this->getIdIndicadores()
+                        )//fim array
+                    )//fim query
+                );//fim return
             }//fim do try
 
             catch(Exception $e)
