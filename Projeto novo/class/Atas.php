@@ -167,7 +167,16 @@
         public function Save()
         {
             try{
-                echo "Save()";
+                $sql = new Sql();
+                return($sql->select("CALL spSaveAtas(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4)",
+                        array(
+                            ":ATRIBUTO1" => $this->getTxtNomeAta(),
+                            ":ATRIBUTO2" => $this->getDtPostagem(),
+                            ":ATRIBUTO3" => $this->getTxtNomeArquivo(),
+                            ":ATRIBUTO4" => $this->getFkResponsavel()
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)
@@ -183,7 +192,17 @@
         public function Update()
         {
             try{
-                echo "UPDATE()";
+                $sql = new Sql();
+                return($sql->select("CALL spUpdAtas(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4)",
+                        array(
+                            ":ATRIBUTO0" => $this->getIdAta(),
+                            ":ATRIBUTO1" => $this->getTxtNomeAta(),
+                            ":ATRIBUTO2" => $this->getDtPostagem(),
+                            ":ATRIBUTO3" => $this->getTxtNomeArquivo(),
+                            ":ATRIBUTO4" => $this->getFkResponsavel()
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)

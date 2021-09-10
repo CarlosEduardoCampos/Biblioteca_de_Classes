@@ -210,7 +210,18 @@
         public function Save()
         {
             try{
-                echo "Save()";
+                $sql = new Sql();
+                return($sql->select("CALL spSaveProjetoLei(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5, :ATRIBUTO6)",
+                        array(
+                            ":ATRIBUTO1" => $this->getTxtNome();
+                            ":ATRIBUTO2" => $this->getTxtDescricao();
+                            ":ATRIBUTO3" => $this->getDtPostagem();
+                            ":ATRIBUTO4" => $this=>getIntStatus();
+                            ":ATRIBUTO5" => $this->getTxtNomeArquivo();
+                            ":ATRIBUTO6" => $this->getFkResponsavel();
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)
@@ -226,7 +237,19 @@
         public function Update()
         {
             try{
-                echo "UPDATE()";
+                $sql = new Sql();
+                return($sql->select("CALL spUpdProjetoLei(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5, :ATRIBUTO6)",
+                        array(
+                            ":ATRIBUTO0" => $this->getIdProjeto();
+                            ":ATRIBUTO1" => $this->getTxtNome();
+                            ":ATRIBUTO2" => $this->getTxtDescricao();
+                            ":ATRIBUTO3" => $this->getDtPostagem();
+                            ":ATRIBUTO4" => $this=>getIntStatus();
+                            ":ATRIBUTO5" => $this->getTxtNomeArquivo();
+                            ":ATRIBUTO6" => $this->getFkResponsavel();
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)

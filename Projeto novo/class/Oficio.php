@@ -212,7 +212,18 @@
         public function Save()
         {
             try{
-                echo "Save()";
+                $sql = new Sql();
+                return($sql->select("CALL spSaveOficio(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5, :ATRIBUTO6)",
+                        array(
+                            ":ATRIBUTO1" => $this->getTxtNomeOficio();
+                            ":ATRIBUTO2" => $this->getTxtObjetoOficio();
+                            ":ATRIBUTO3" => $this->getDtPostagem();
+                            ":ATRIBUTO4" => $this->getTxtNomeArquivo();
+                            ":ATRIBUTO5" => $this->getVereador();
+                            ":ATRIBUTO6" => $this->getFkResponsavel();
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)
@@ -228,7 +239,19 @@
         public function Update()
         {
             try{
-                echo "UPDATE()";
+                $sql = new Sql();
+                return($sql->select("CALL spUpdOficio(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5, :ATRIBUTO6)",
+                        array(
+                            ":ATRIBUTO0" => $this->getIdOficio();
+                            ":ATRIBUTO1" => $this->getTxtNomeOficio();
+                            ":ATRIBUTO2" => $this->getTxtObjetoOficio();
+                            ":ATRIBUTO3" => $this->getDtPostagem();
+                            ":ATRIBUTO4" => $this->getTxtNomeArquivo();
+                            ":ATRIBUTO5" => $this->getVereador();
+                            ":ATRIBUTO6" => $this->getFkResponsavel();
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)

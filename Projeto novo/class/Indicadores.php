@@ -189,7 +189,17 @@
         public function Save()
         {
             try{
-                echo "Save()";
+                $sql = new Sql();
+                return($sql->select("CALL spSaveIndicadores(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5)",
+                        array(
+                            ":ATRIBUTO1" => $this->getTxtNomeIndicacao(),
+                            ":ATRIBUTO2" => $this->getTxtDescricao(),
+                            ":ATRIBUTO3" => $this->getDtDataPostagem(),
+                            ":ATRIBUTO4" => $this->getTxtNomeArquivo(),
+                            ":ATRIBUTO5" => $this->getFkResponsavel()
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)
@@ -205,7 +215,18 @@
         public function Update()
         {
             try{
-                echo "UPDATE()";
+                $sql = new Sql();
+                return($sql->select("CALL spUpdIndicadores(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5)",
+                        array(
+                            ":ATRIBUTO0" => $this->getIdIndicadores(),
+                            ":ATRIBUTO1" => $this->getTxtNomeIndicacao(),
+                            ":ATRIBUTO2" => $this->getTxtDescricao(),
+                            ":ATRIBUTO3" => $this->getDtDataPostagem(),
+                            ":ATRIBUTO4" => $this->getTxtNomeArquivo(),
+                            ":ATRIBUTO5" => $this->getFkResponsavel()
+                        )//fim array
+                    )//fim função select
+                );//fim return
             }//fim do try
 
             catch(Exception $e)
