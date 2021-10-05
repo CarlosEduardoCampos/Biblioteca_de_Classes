@@ -1,5 +1,5 @@
 <?php 
-    class Reservas
+    class Reserva
     {
         //Atributos
         private $idReserva;
@@ -109,5 +109,37 @@
 
             return $this;
         }
+
+        /**
+         * Recebe um array via $_POST e alimenta as
+         * variaveis comos dados correspondentes
+         */
+        public function setDadosForm($post)
+        {
+            $this->setDtCheck_in ($post["dtCheck_in"]);
+            $this->setDtCheck_out($post["dtCheck_out"]);
+            $this->setNumValorTotal($post["numValorTotal"]);
+        }//fim setDadosForm
+
+        /**
+         * Busca um cadastro no banco de dados e retorna um array com os dados
+         */
+        public function get()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->select("SELECT * FROM tblReserva WHERE idReserva = :id",
+                        array(
+                            ":id" => $this->getIdQuarto()
+                        )//fim array
+                    )[0]//fim select
+                );//fim return
+            }//fim try
+
+            catch (Exception $e)
+            {
+                return json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função get
     }//fim classe
 ?>

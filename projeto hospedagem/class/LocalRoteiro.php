@@ -5,6 +5,7 @@
         private $idLocalRoteiro;
         private $txtNome;
         private $txtDescription;
+        private $txtLinkGps;
         ##
 
         /**
@@ -66,5 +67,49 @@
 
             return $this;
         }
-    }
+
+        /**
+         * Get the value of txtLinkGps
+         */ 
+        public function getTxtLinkGps()
+        {
+            return $this->txtLinkGps;
+        }
+
+        /**
+         * Set the value of txtLinkGps
+         *
+         * @return  self
+         */ 
+        public function setTxtLinkGps($txtLinkGps)
+        {
+            $this->txtLinkGps = $txtLinkGps;
+
+            return $this;
+        }
+
+        /**
+         * Recebe um array via $_POST e alimenta as
+         * variaveis comos dados correspondentes
+         */
+        public function setDadosForm($post)
+        {
+            $this->setTxtNome       ($post["txtNome"]);
+            $this->setTxtDescription($post["txtDescripton"]);
+            $this->setTxtLinkGps    ($post["txtLinkGps"]);
+        }//fim setDadosForm
+
+        /**
+         * Busca um cadastro no banco de dados e retorna um array com os dados
+         */
+        public function get()
+        {
+            $sql = new Sql();
+            return($sql->select("SELECT * FROM tblLocalRoteiro WHERE idLocalRoteiro = :id",
+                array(
+                    ':id' => getIdLocalRoteiro()
+                ))[0]//fim array,select
+            );//fim return
+        }//fm função get
+    }//fim class
 ?>

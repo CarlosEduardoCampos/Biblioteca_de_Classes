@@ -5,6 +5,9 @@
         private $idRoteiro;
         private $txtNome;
         private $txtDescricao;
+        # intPasseio
+        # 1 -> 4x4
+        # 2 -> Lancha
         private $intPasseio;
         private $intDuracao;
         private $numValorPessoa;
@@ -128,5 +131,39 @@
 
             return $this;
         }
+
+        /**
+         * Recebe um array via $_POST e alimenta as
+         * variaveis comos dados correspondentes
+         */
+        public function setDadosForm($post)
+        {
+            $this->setTxtNome          ($post["txtNome"]);
+            $this->setTxtDescricao     ($post["txtDescricao"]);
+            $this->setIntPasseio       ($post["intPasseio"]);
+            $this->setIntDuracao       ($post["intDuracao"]);
+            $this->setNumValoresPessoa ($post["numValoresPessoa"]);
+        }//fim função setDadosForm
+
+        /**
+         * Busca um cadastro no banco de dados e retorna um array com os dados
+         */
+        public function get()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->select("SELECT * FROM tblRoteiro WHERE idRoteiro = :id",
+                        array(
+                            ':id' => getIdRoteiro()
+                        )//fim array
+                    )[0]//fim select
+                );//fim return
+            }//fim try
+            
+            catch (Exeption $e)
+            {
+               return json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função get
     }//fim classe
 ?>

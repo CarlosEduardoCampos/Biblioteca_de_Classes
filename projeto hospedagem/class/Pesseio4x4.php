@@ -86,5 +86,37 @@
 
             return $this;
         }
+
+        /**
+         * Recebe um array via $_POST e alimenta as
+         * variaveis comos dados correspondentes
+         */
+        public function setDadosForm($post)
+        {
+            $this->setTxtNome     ($post["txtNome"]);
+            $this->setTxtDescricao($post["txtDescricao"]);
+            $this->setIntLotacao  ($post["intLotacao"]);
+        }//fim setDadosForm
+
+        /**
+         * Busca um cadastro no banco de dados e retorna um array com os dados
+         */
+        public function get()
+        {
+            try{
+                $sql = new Sql();
+                return ($sql->select("SELECT * FROM tblPasseio4x4 WHERE idPasseio4x4 = :id",
+                        array(
+                            ':id' => getIdPasseio4x4()
+                        )//fim array
+                    )[0]//fim select
+                );//fim return
+            }
+
+            catch (Exception $e)
+            {
+                return json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função get
     }//fim classe
 ?>

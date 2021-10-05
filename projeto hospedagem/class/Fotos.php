@@ -55,6 +55,5 @@
             $filename = $files["txtNomeArquivo"]["name"];
             move_uploaded_file($files["txtNomeArquivo"]["tmp_name"],"fotos_quartos/$filename");
         }//fim função upload
-        
     }//fim class
 ?>
