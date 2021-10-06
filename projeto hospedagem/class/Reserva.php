@@ -141,5 +141,89 @@
                 return json_encode(Msg::arrayErros($e));
             }//fim catch
         }//fim função get
+
+        /**
+         * Busca todos os dados de uma tabela no banco de dados
+         * e retorna um array
+         */
+        public static function listAll()
+        {
+            try{
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblReserva");
+            }//fim try
+
+            catch (Exception $e)
+            {
+                return json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função listAll
+
+        /**
+         * Faz um INSERT no banco de dados
+         */
+        public function Save()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->select("CALL spSaveReserva(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3)",
+                    array(
+                        ':ATRIBUTO1' => $this->getDtCheck_in(),
+                        ':ATRIBUTO2' => $this->getDtCheck_out(),
+                        ':ATRIBUTO3' => $this->getNumValorTotal()
+                    ))//fim array, select
+                );//fim return
+            }//fim try
+
+            catch (Execption $e)
+            {
+                return json_encode(Msg::arrayErros($e))
+            }//fim catch
+        }//fim função Save
+
+        /**
+         * Modifica os dados de um cadastro que e indetificado pelo id 
+         * usando um UPDATE
+         */
+        public function Update()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->select("CALL spUpdReserva(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3)",
+                    array(
+                        ':ATRIBUTO0' => $this->getIdReserva(),
+                        ':ATRIBUTO1' => $this->getDtCheck_in(),
+                        ':ATRIBUTO2' => $this->getDtCheck_out(),
+                        ':ATRIBUTO3' => $this->getNumValorTotal()
+                    ))//fim array, select
+                );//fim return
+            }//fim try
+
+            catch (Execption $e)
+            {
+                return json_encode(Msg::arrayErros($e))
+            }//fim catch
+        }//fim função update
+
+        /**
+         * Elimina um cadastro do banco de dados que e 
+         * indetificado pelo id 
+         */
+        public function delete()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->query("DELETE FROM tblReserva WHERE idReserva = :ID", 
+                    array(
+                        ':ID' => $this->getIdReserva()
+                    ))//fim array, query
+                );//fim return
+            }//fim do try
+
+            catch(Exception $e)
+            {
+                return json_encode(Msg::arrayErros($e));
+            }//fim do catch
+        }//fim função delete
     }//fim classe
 ?>

@@ -165,5 +165,93 @@
                return json_encode(Msg::arrayErros($e));
             }//fim catch
         }//fim função get
+
+        /**
+         * Busca todos os dados de uma tabela no banco de dados
+         * e retorna um array
+         */
+        public static function listAll()
+        {
+            try{
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblRoteiro;");
+            }//fim try
+            
+            catch (Execption $e)
+            {
+                return json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função listAll
+
+        /**
+         * Faz um INSERT no banco de dados
+         */
+        public function Save()
+        {
+            try{
+                $sql = new Sql();
+                return ($slq->select("CALL spSaveRoteiro(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5)",
+                    array(
+                        ":ATRIBUTO1" => $this->getTxtNome(),
+                        ":ATRIBUTO2" => $this->getTxtDescricao(),
+                        ":ATRIBUTO3" => $this->getIntPasseio(),
+                        ":ATRIBUTO4" => $this->getIntDuracao(),
+                        ":ATRIBUTO5" => $this->getNumValorPessoa()
+                    ))//fim array, select
+                );//fim return 
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função save
+
+        /**
+         * Modifica os dados de um cadastro que e indetificado pelo id 
+         * usando um UPDATE
+         */
+        public function Update()
+        {
+            try{
+                $sql = new Sql();
+                return ($slq->select("CALL spUpdRoteiro(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5)",
+                    array(
+                        ":ATRIBUTO0" => $this->getIdRoteiro(),
+                        ":ATRIBUTO1" => $this->getTxtNome(),
+                        ":ATRIBUTO2" => $this->getTxtDescricao(),
+                        ":ATRIBUTO3" => $this->getIntPasseio(),
+                        ":ATRIBUTO4" => $this->getIntDuracao(),
+                        ":ATRIBUTO5" => $this->getNumValorPessoa()
+                    ))//fim array, select
+                );//fim return 
+            }//fim try
+            
+            catch (Exception $e)
+            {
+                json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função update
+
+        /**
+         * Elimina um cadastro do banco de dados que e 
+         * indetificado pelo id 
+         */
+        public function delete()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->query("DELETE FROM tblRoteiro WHERE idRoteiro = :ID", 
+                    array(
+                        ':ID' => $this->getIdRoteiro()
+                    ))//fim array, query
+                );//fim return
+            }//fim do try
+
+            catch(Exception $e)
+            {
+                return json_encode(Msg::arrayErros($e));
+            }//fim do catch
+        }//fim função delete
     }//fim classe
 ?>

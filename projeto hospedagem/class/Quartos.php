@@ -378,6 +378,6 @@
             {
                 return json_encode(Msg::arrayErros($e));
             }//fim do catch
-        }//fim função delete()
+        }//fim função delete
     }//fim classe
 ?>

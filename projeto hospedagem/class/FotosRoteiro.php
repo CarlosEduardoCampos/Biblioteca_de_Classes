@@ -74,8 +74,8 @@
         */
         public function Upload($files)
         {
-            $filename = $files["txtNomeArquivo"]["name"];
-            move_uploaded_file($files["txtNomeArquivo"]["tmp_name"],"fotos_roteiro/$filename");
+            $filename = $files["txtNome"]["name"];
+            move_uploaded_file($files["txtNome"]["tmp_name"],"fotos_roteiro/$filename");
         }//fim função upload
 
         /**
@@ -97,5 +97,64 @@
                 return json_encode(Msg::arrayErros($e));
             }//fim catch
         }//fim função get
+
+        /**
+         * Busca todos os dados de uma tabela no banco de dados
+         * e retorna um array
+         */
+        public static function listAll()
+        {
+            try{
+                $sql = new Sql();
+                return $sql->select("SELECT * FROM tblFotosRoteiro");
+            }//fim try
+
+            catch (Exception $e)
+            {
+                json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função listAll
+
+        /**
+         * Faz um INSERT no banco de dados
+         */
+        public function Save()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->select("CALL spSaveFotosRoteiro(:ATRIBUTO1, :ATRIBUTO2)", 
+                    array(
+                        ':ATRIBUTO1' => $this->getTxtNome(),
+                        ':ATRIBUTO2' => $this->getFkLocal()
+                    ))//fim select
+                );//fim return
+            }//fim try
+
+            catch (Execption $e)
+            {
+                json_encode(Msg::arrayErros($e));
+            }//fim catch
+        }//fim função save
+
+        /**
+         * Elimina um cadastro do banco de dados que e 
+         * indetificado pelo id 
+         */
+        public function delete()
+        {
+            try{
+                $sql = new Sql();
+                return($sql->query("DELETE FROM tblFotosRoteiro WHERE idFotosRoteiro = :ID", 
+                    array(
+                        ':ID' => $this->getIdFotosRoteiro()
+                    ))//fim array, query
+                );//fim return
+            }//fim do try
+
+            catch(Exception $e)
+            {
+                return json_encode(Msg::arrayErros($e));
+            }//fim do catch
+        }//fim função delete
     }//fim classe
 ?>
