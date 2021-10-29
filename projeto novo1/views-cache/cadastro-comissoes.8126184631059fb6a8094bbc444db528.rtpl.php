@@ -1,0 +1,74 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Comissões</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/cadastrar-comissoes" enctype="multipart/form-data">
+                <div class="card-body row">
+
+                  <div class="form-group col-md-12">
+                    <label for="exampleInputName">Comissoes</label>
+                    <input type="text" class="form-control" id="exampleInputName" name="txtNomeComissoes">
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="exampleInputDescricao"> Descrição </label>
+                    <textarea name="txtDescricao" class="form-control" rows="5"></textarea>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputTipo">Tipo</label>
+                    <select name="intTipo" id="exampleInputTipo" class="form-control">
+                      <option value=""> SELECIONE </option>
+                      <option value="0"> Permanente </option>
+                      <option value="1"> Tipo 2 </option>
+                      <option value="2"> tipo 4 </option>
+                    </select>
+                  </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer col-md-12 form-group">
+                  <button type="submit" class="btn btn-primary form-control">Cadastrar</button>
+                </div>
+
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
