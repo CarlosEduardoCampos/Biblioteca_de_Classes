@@ -1,4 +1,5 @@
 <?php
-    //require_once('admin-atas.php');
+    require_once('admin-loja.php');
+    require_once('admin-categoria.php');
 ?>
     

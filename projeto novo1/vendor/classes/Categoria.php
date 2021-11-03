@@ -9,7 +9,7 @@
          */ 
         public function getIdCategoria()
         {
-                return $this->idCategoria;
+            return $this->idCategoria;
         }
 
         /**
@@ -19,9 +19,9 @@
          */ 
         public function setIdCategoria($idCategoria)
         {
-                $this->idCategoria = $idCategoria;
+            $this->idCategoria = $idCategoria;
 
-                return $this;
+            return $this;
         }
 
         /**
@@ -29,7 +29,7 @@
          */ 
         public function getTxtNome()
         {
-                return $this->txtNome;
+            return $this->txtNome;
         }
 
         /**
@@ -39,9 +39,9 @@
          */ 
         public function setTxtNome($txtNome)
         {
-                $this->txtNome = $txtNome;
+            $this->txtNome = $txtNome;
 
-                return $this;
+            return $this;
         }
 
         /**
@@ -63,7 +63,7 @@
                 return($sql->select("SELECT * FROM tblCategoria WHERE :id",
                 [//array
                     ':id' => $this->getIdCategoria()
-                ]));
+                ])[0]);
             }//fim try
             
             catch (Exception $e)
@@ -123,8 +123,9 @@
                 return($sql->query("DELETE FROM tblCategoria WHERE idCategoria = :id",
                 [
                     ':id' => $this->getIdCategoria()
-                ])
-            } catch (Exception $e) {
+                ]));
+            }
+            catch (Exception $e) {
                 json_encode(Msg::arrayErros($e));
             }
         }

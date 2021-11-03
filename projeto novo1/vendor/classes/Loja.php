@@ -179,7 +179,7 @@
         {
             $this->setTxtNome      ($post['Nome']);
             $this->setTxtDescricao ($post['Descricao']);
-            $this->setTxtEndereco  ($post['Edereco']);
+            $this->setTxtEndereco  ($post['Endereco']);
             $this->setTxtBairro    ($post['Bairro']);
             $this->setTxtNumero    ($post['Numero']);
             $this->setTxtCidade    ($post['Cidade']);
@@ -196,7 +196,7 @@
                 return($sql->select("SELECT * FROM tblLoja WHERE :id",
                 [//array
                     ':id' => $this->getIdLoja()
-                ]));//fim array, select, return
+                ])[0]);//fim array, select, return
             }//fim try
 
             catch (Exception $e)
@@ -232,8 +232,8 @@
         public function save()
         {
             try{
-                sql = new Sql();
-                return(sql->select("CALL spSaveLoja(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5, :STRIBUTO6)",
+                $sql = new Sql();
+                return($sql->select("CALL spSaveLoja(:ATRIBUTO0, :ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5, :ATRIBUTO6)",
                 [//array
                     ':ATRIBUTO0' => $this->getTxtNome(),
                     ':ATRIBUTO1' => $this->getTxtDescricao(),
