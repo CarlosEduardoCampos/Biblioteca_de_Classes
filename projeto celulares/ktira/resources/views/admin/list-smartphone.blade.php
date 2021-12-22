@@ -34,20 +34,21 @@
               </form>
             </div> -->
             <div class="col-sm-2">
-                <a href="/admin/cadastrar-localroteiro" class="btn btn-success">Cadastrar Local Roteiro</a> 
+                <a href="/admin/cadastrar-localroteiro" class="btn btn-success">Cadastrar Smartphone</a> 
                         </div>
             <table class="table mt-3">
               <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Local</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Problema</th>
                     <th></th>
                     <th></th>
                 </tr>
               </thead>
               <tbody>
-                {loop="$localroteiro"}
+                {loop="$smartphone"}
                   <tr>
                     <td>{$value.idLocalRoteiro}</td>
                     <td>{$value.txtNome}</td>

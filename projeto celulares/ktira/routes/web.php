@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('smartphone','Smartphone');
+Route::resource('pecasReparo','PecasReparo');

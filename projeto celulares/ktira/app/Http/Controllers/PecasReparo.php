@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Smartphone extends Controller
+class PecasReparo extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class Smartphone extends Controller
      */
     public function index()
     {
-        //return view('admin.list-smartphone',['smartphone'=> Smartphone::listAll()]);
-        return view('admin.list-smartphone',['smartphone'=>[]]);
+        //return view('admin.list-pecasReparo',['pecasReparo'=> pecasReparo::listAll()]);
+        return view('admin.list-pecasReparo',['pecasReparo'=>[]]);
     }
 
     /**
@@ -25,7 +25,7 @@ class Smartphone extends Controller
     public function create()
     {
         //
-        return view('admin.cadastro-smartphone');
+        return view('admin.cadastro-pecasReparo');
     }
 
     /**
@@ -36,9 +36,9 @@ class Smartphone extends Controller
      */
     public function store(Request $request)
     {
-        //$smartphone = $this->setDataForm();
-        //$smartphone = $this->save();
-        //return redirect()->route('smartphone.index');
+        //$pecasReparo = $this->setDataForm();
+        //$pecasReparo = $this->save();
+        return redirect()->route('pecasReparo.index');
     }
 
     /**
@@ -60,8 +60,8 @@ class Smartphone extends Controller
      */
     public function edit($id)
     {
-        //$smartphone = $this->setIdCelular();
-        //return view('admin.edit-smartphone','smartphone'=> $this->get());
+        //$pecasReparo = $this->setIdReparo();
+        return view('admin.edit-pecasReparo',['pecasReparo'=> []]);
     }
 
     /**
@@ -73,10 +73,11 @@ class Smartphone extends Controller
      */
     public function update(Request $request, $id)
     {
-        //$smatphone = $this->setIdCelular();
-        //$smartphone = $this->setDataForm();
-        //$smartphone = $this->save();
-        return redirect()->route('smartphone.index');
+        //
+        //$smatphone = $this->setIdReparo();
+        //$pecasReparo = $this->setDataForm();
+        //$pecasReparo = $this->save();
+        return redirect()->route('pecasReparo.index');
     }
 
     /**
@@ -87,8 +88,9 @@ class Smartphone extends Controller
      */
     public function destroy($id)
     {
-        //$smartphone = setId($id);
-        //$smartphone = delete();
-        //return redirect()->route('smartphone.index');
+        //
+        //$pecasReparo = setId($id);
+        //$pecasReparo = delete();
+        return redirect()->route('pecasReparo.index');
     }
 }

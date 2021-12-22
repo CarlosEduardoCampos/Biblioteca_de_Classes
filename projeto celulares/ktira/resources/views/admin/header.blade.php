@@ -81,9 +81,7 @@
     </header>
 
 
-  <header class="mobile">
-
-   
+    <header class="mobile">
 
         <div class="d-flex justify-content-between centro align-items-center container">
           <div><img src="_img/logo.svg" alt="" /></div>
@@ -158,5 +156,8 @@
           <!-- /.container -->
        </nav>
      
-      
-    </header> 
+    </header>
+    @yield('conteudo')
+    @yield('footer')
+  </body>
+  </html>
