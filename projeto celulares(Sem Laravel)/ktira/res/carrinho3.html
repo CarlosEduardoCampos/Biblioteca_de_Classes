@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/res/easyzoom.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header class="desktop">
+        <div class="superior">
+            <span>Texto</span>
+        </div>
+      <hr>
+      
+
+      <div class="container d-flex justify-content-between centro align-items-center">
+        <a href="/" class="logo"><img src="_img/logo.svg" alt="" /></a>
+        <div class="formulario">
+          <form action="/produtos" method="get" class="d-flex justify-content-between align-items-center">
+            <input type="text" placeholder="Busque aqui seu smartphone" name="busca">
+            <button type="submit" class="d-flex align-items-center">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="usuario">
+          <ul class="d-flex align-items-center">
+            <li class="mr-20">
+              <a href="/conta" class="d-flex align-items-center">
+                <i class="fas fa-user"></i> <span>Minha Conta</span></a
+              >
+            </li>
+            <li>
+              <a href="/carrinho" class="d-flex align-items-center"
+                ><i class="fas fa-shopping-cart"></i> <span>0 itens</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <nav class="navbar navbar-expand-lg desktop">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav container">
+            <li class="nav-item">
+              <a class="nav-link" href="/produtos?busca=samsung">LINHA BATIZADO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/produtos?busca=motorola">LINHA NEUTRA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/produtos?busca=apple">MENINOS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/produtos?busca=lg">MENINAS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/produtos?busca=xiaomi">ACESSÓRIOS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/produtos?busca=asus">PERSONALIZADOS</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+
+  <header class="mobile">
+
+   
+
+        <div class="d-flex justify-content-between centro align-items-center container">
+          <div><img src="_img/logo.svg" alt="" /></div>
+         
+          <div class="usuario">
+            <ul class="d-flex align-items-center">
+              <li class="mr-20">
+                <a href="" class="d-flex align-items-center">
+                  <i class="fas fa-user"></i> <span>Minha Conta</span></a
+                >
+              </li>
+              <li>
+                <a href="/carrinho" class="d-flex align-items-center"
+                  ><i class="fas fa-shopping-cart"></i> <span>0 itens</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <nav class="navbar navbar-inverse">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed left" data-toggle="collapse" data-target="#menu">
+                <i class="fas fa-bars"></i>
+              </button>
+             
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#search">
+                      <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+              <ul class="nav navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/produtos?busca=samsung">LINHA BATIZADO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/produtos?busca=motorola">LINHA NEUTRA</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/produtos?busca=apple">MENINOS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/produtos?busca=lg">MENINAS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/produtos?busca=xiaomi">ACESSÓRIOS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/produtos?busca=asus">PERSONALIZADOS</a>
+                </li>
+                
+              </ul> 
+              <hr>
+              <ul class="d-flex">
+                <li><a href="">Quem Somos</a></li>
+                <li><a href="">Dúvidas Frequentes</a></li>
+                
+              </ul> 
+            </div>
+      
+            <!-- /.navbar-collapse #menu -->
+            <div class="collapse navbar-collapse hidden-lg form-mobile" id="search">
+              <form class="hidden-sm hidden-md hidden-lg" role="search" action="/" method="GET">
+              <div class="input-group">
+              <input type="text" placeholder="Busque aqui seu smartphone"/>
+              <button type="submit"><i class="fas fa-search"></i></button>
+        </form> 
+            </div>
+            <!-- /.navbar-collapse #search -->
+        </div>
+          <!-- /.container -->
+       </nav>
+     
+      
+    </header> 
+
+    <main>
+    
+      <section class="carrinho3 container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="infoPessoais">
+            <div class="cabecalho">
+              <span>1</span>
+              <p>Informações Pessoais</p>
+            </div>
+            <div class="conteudo">
+              <label for="">Nome Completo</label><br>
+              <input type="text" disabled value="Reyson Teixeira Terra">
+              <div class="d-flex">
+                <div class="cpf">
+                  <label for="">CPF</label>
+                  <input type="text" disabled value="124.794.126-44">
+                </div>
+                <div class="sep">
+
+                </div>
+                <div class="telefone">
+                  <label for="">Telefone</label>
+                  <input type="text" disabled value="(37)99835-3524">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="entrega">
+
+            <div class="cabecalho">
+              <span>2</span>
+              <p>Entrega</p>
+            </div>
+            <div class="conteudo">
+              <label for="">Correios</label><br>
+              <input type="radio"><label for="" class="rbLabel">PAC - em média 14 dias por <b>R$25,80</b></label><br>
+              <input type="radio"><label for="" class="rbLabel">SEDEX - em média 25 dias por <b>R$55,45</b></label>
+            
+            </div>
+
+          </div>
+          </div>
+          <div class="col-md-4">
+            <div class="pagamento">
+              <div class="cabecalho">
+                <span>3</span>
+                <p>Pagamento</p>
+              </div>
+              <div class="conteudo">
+                  <div class="payment">
+                  <input type="radio" name="" id=""> <label for="">Cartão de Crédito e Débito</label>
+                </div>
+                <div class="payment">
+                  <input type="radio" name="" id=""> <label for="">Boleto Bancário</label>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="revisao">
+                <div class="cabecalho">
+                  <span>4</span>
+                  <p>Revisão do Pedido</p>
+                </div>
+                <div class="conteudo">
+                  <div class="d-flex">
+                    <img src="_img/_produtos/img1.svg" alt="">
+                    <div>
+                      <h6>CONJUNTO INFANTIL AZUL</h6>
+                      <div class="d-flex align-items-center justify-content-between detalhesProdutos">
+                        <div>
+                            <span class="negrito">Cor:</span><span> Azul</span><br>
+                            <span class="negrito">Tamanho:</span><span> PRE</span><br>
+                            <span class="negrito">Quantidade:</span><span> 1</span>
+                        </div>
+                        <span class="price">R$105,50</span>
+                      </div>
+                    </div>
+                  </div> 
+                 
+                </div>
+                <div class="tarja">
+                  <span>Subtotal</span><span class="price">R$105,50</span>
+                </div>
+                <div class="tarja">
+                  <span>Frete</span><span class="price">R$10,10</span>
+                </div>
+                <div class="tarja">
+                  <span class="totalValor">Valor Total</span><span class="priceTotal">R$115,60</span>
+                </div>
+              </div>
+              <form action="" class="finalizarPedido">
+                <input type="submit" value="Finalizar Pedido">
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+          
+      
+    
+         
+    </main>
+    <footer>
+      <section class="superior">
+        <div class="container conteudo">
+          <div class="contatos">
+            <h4>CONTATOS</h4>
+            <div class="separador"></div>
+          </div>
+          <div class="produtos">
+            <h4>PRODUTOS</h4>
+            <div class="separador"></div>
+            <ul>
+              <li><a>Linha Maternidade</a></li>
+              <li><a>Linha Batizado</a></li>
+              <li><a>Linha Neutra</a></li>
+              <li><a>Meninos</a></li>
+              <li><a>Meninas</a></li>
+              <li><a>Acessórios</a></li>
+              <li><a>Personalizados</a></li>
+            </ul>
+          </div>
+          <div class="info">
+            <h4>INFORMAÇÕES</h4>
+            <div class="separador"></div>
+            <ul>
+              <li><a href="">Quem Somos</a></li>
+              <li><a href="">Dúvidas Frequentes</a></li>
+            </ul>
+          </div>
+          <div class="newsletter">
+            <div>
+            <h4>NEWSLETTER</h4>
+            <div class="separador"></div>
+            <span>Cadastre seu email e receba nossas
+              atualizações</span>
+              <form action="">
+                <input type="text" placeholder="exemplo@email.com">
+                <button type="submit"><i class="fab fa-telegram-plane"></i></button>
+              </form>
+            </div>
+            <div class="sociais">
+              <h5>Siga nossas redes sociais</h5>
+              <div class="icones">
+              <a href=""><button><i class="fab fa-facebook-f"></i></button></a>
+              <a href=""><button><i class="fab fa-instagram"></i></button></a>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+      <section class="inferior">
+
+      </section>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+  crossorigin="anonymous"
+></script>
+<script src="script.js"></script>
+
+
+
+</html>
+

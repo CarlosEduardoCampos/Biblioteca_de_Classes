@@ -1,0 +1,85 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Vereadores</h1>
+          </div>
+
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/cadastrar-vereadores" enctype="multipart/form-data">
+                <div class="card-body row">
+
+                  <div class="form-group col-md-12">
+                    <label for="exampleInputName">Nome Completo</label>
+                    <input type="text" class="form-control" id="exampleInputName" name="txtNomeVereador"
+                      placeholder="Nome Completo">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputArquivo">Anexar Foto</label>
+                    <input type="file" id="exampleInputArquivo" name="txtFotoVereador">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputNacimento">Data de Nascimento</label>
+                    <input type="date" class="form-control" id="exampleInputNacimento" name="dtNascimento">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputStatus">Status</label>
+                    <select name="boolStatus" id="exampleInputStatus" class="form-control">
+                      <option value=" "> SELECT </option>
+                      <option value="0"> Inativo </option>
+                      <option value="1"> Ativo </option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputPartido">Partido</label>
+                    <input type="text" class="form-control" id="exampleInputPartido" name="txtPartido">
+                  </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer col-md-12 form-group">
+                  <button type="submit" class="btn btn-primary form-control">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
