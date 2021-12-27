@@ -5,7 +5,7 @@ class Sql {
 	const HOSTNAME = 'localhost';
 	const USERNAME = 'root';
 	const PASSWORD = '';
-	const DBNAME = 'db_loja';
+	const DBNAME = 'db_ktira';
 
 	// const HOSTNAME = 'localhost';
 	// const USERNAME = 'capito65_reyson';
