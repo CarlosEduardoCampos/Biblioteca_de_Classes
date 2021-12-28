@@ -97,6 +97,13 @@
               </a>
             </li>
 
+            <li class="nav-item">
+              <a href="/admin/pescasReparo" class="nav-link">
+                <i class="nav-icon fa fa-cogs"></i>
+                <p> Peças </p>
+              </a>
+            </li>
+
 
             <li class="nav-header">ADMINISTRATIVO</li>
 

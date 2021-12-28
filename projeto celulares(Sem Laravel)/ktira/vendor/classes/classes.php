@@ -1,6 +1,7 @@
 <?php
     //
     require_once('Smartphones.php');
+    require_once('PescasReparo.php');
     //
     require_once('Sql.php');
     require_once('Msg.php');
