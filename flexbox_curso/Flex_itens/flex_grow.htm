@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex_itens - Flex_grow</title>
+    <style>
+        .flex-container{
+            display: flex;
+            border: 2px solid black;
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .item{
+            background-color: orangered;
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        .fg_0{
+            flex-grow: 0;
+        }
+        .fg_1{
+            flex-grow: 1;
+        }
+        .fg_2{
+            flex-grow: 2;
+        }
+        .fg_3{
+            flex-grow: 3;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        Define a proporcionalidade de crecimento dos itens,
+        respeitando o tamanho de seus conteúdos internos
+
+        OBS: Não irá funcionar caso tenhamos adicionado justify-content
+        ao nosso flex container
+    -->
+    <p>flex-grow:0</p>
+    <div class="flex-container">
+        <div class="item fg_0">A</div>
+        <div class="item fg_0">B</div>
+        <div class="item fg_0">C</div>
+        <div class="item fg_0">D</div>
+    </div>
+
+    <p>flex-grow:1</p>
+    <div class="flex-container">
+        <div class="item fg_1">A</div>
+        <div class="item fg_1">B</div>
+        <div class="item fg_1">C</div>
+        <div class="item fg_1">D</div>
+    </div>
+
+    <p>flex-grow:2</p>
+    <div class="flex-container">
+        <div class="item fg_2">A</div>
+        <div class="item fg_2">B</div>
+        <div class="item fg_2">C</div>
+        <div class="item fg_2">D</div>
+    </div>
+
+    <p>flex-grow:3</p>
+    <div class="flex-container">
+        <div class="item fg_3">A</div>
+        <div class="item fg_3">B</div>
+        <div class="item fg_3">C</div>
+        <div class="item fg_3">D</div>
+    </div>
+
+    <p>flex-grow: alternados</p>
+    <div class="flex-container">
+        <div class="item fg_1">A</div>
+        <div class="item fg_2">B</div>
+        <div class="item fg_2">C</div>
+        <div class="item fg_1">D</div>
+    </div>
+</body>
+</html>
