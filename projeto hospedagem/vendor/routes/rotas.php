@@ -1,9 +1,0 @@
-<?php 
-    require_once('admin-fotos.php');
-    require_once('admin-quartos.php');
-    require_once('admin-roteiro.php');
-    require_once('admin-reserva.php');
-    require_once('admin-passeio4x4.php');
-    require_once('admin-fotosRoteiro.php');
-    require_once('admin-localRoteiro.php');
-?>
