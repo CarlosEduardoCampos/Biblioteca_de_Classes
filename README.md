@@ -5,4 +5,4 @@ Arquivos de atividades realizadas em cursos
 
 - Cria um site responsivo usando elementos flex em CSS
 
-<video src="..\img_projetos\flex_turismo"></video>
+<video src="..\img_projetos\flex_turismo.mp4"></video>
