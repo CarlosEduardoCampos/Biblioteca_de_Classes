@@ -1,0 +1,25 @@
+.delete{
+    background-color: red;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 10px;
+}
+table{
+    text-align: center;
+    background-color: black;
+    padding: 1px;
+    margin: 40px auto;
+}
+thead{
+    background-color: white;
+    
+}
+th{
+    min-width: 100px;
+    max-width: 200px;
+}
+tr{
+    background-color: white;
+    padding: 5px;
+}
