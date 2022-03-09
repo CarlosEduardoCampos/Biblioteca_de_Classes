@@ -1,0 +1,6 @@
+-> npm int -y:
+Inicia um novo projeto 
+
+-> npm i --save-dev mocha:
+Baixa dependencias do mocha
+
