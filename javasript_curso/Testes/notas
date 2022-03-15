@@ -4,3 +4,8 @@ Inicia um novo projeto
 -> npm i --save-dev mocha:
 Baixa dependencias do mocha
 
+-> npm i --save-dev chai:
+Baixa a biblioteca chai substitui o assert
+
+-> npm i --save-dev sinon
+

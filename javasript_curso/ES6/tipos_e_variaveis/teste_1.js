@@ -15,7 +15,7 @@ var data = "19/02/2022";
 
 // Retorna o tamnho de uma string
 const textSize = "texto".length;
-console.log('Quantidade de letras: ${textSize}');
+console.log(`Quantidade de letras: ${textSize}`);
 
 // Retorna um array quebrando a string por um delimitador
 const splitedText = "Texto".split('x');

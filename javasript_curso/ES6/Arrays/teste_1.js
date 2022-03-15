@@ -28,7 +28,7 @@ console.log('Items:',persons.length);
 
 // Verifica se é array
 persons.forEach(person => {
-    console.log('nome:${person.name}');
+    console.log(`nome:${person.name}`);
 });
 
 // Filtrar Array
