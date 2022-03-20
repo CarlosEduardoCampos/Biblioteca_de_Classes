@@ -10,7 +10,7 @@ interface Veiculo // Similar a uma class
 
     function patio()
     {
-        function ler()
+        function ler():Veiculo[]
         {
             return localStorage.patio ? JSON.parse(localStorage.patio):[];
         }
@@ -20,7 +20,7 @@ interface Veiculo // Similar a uma class
             localStorage.setItem("patio",JSON.stringify(veiculos));
         }
 
-        function adicionar(veiculo:any)
+        function adicionar(veiculo:any,salva?:boolean)
         {
             const row = document.createElement("tr");
             
@@ -33,8 +33,14 @@ interface Veiculo // Similar a uma class
                 </td>
             `;
 
-            $("#patio")?.appendChild(row);
-            salvar([...ler(),veiculo]);
+            row.querySelector('delete')?.addEventListener("click", function()
+            {
+                remover(this.dataset.placa as string)
+            });
+
+            $("#patio")?.appendChild(row);// add row in table
+
+            if(salva) salvar([...ler(),veiculo]);
         }
 
         function remover()
@@ -46,11 +52,19 @@ interface Veiculo // Similar a uma class
 
         function render()
         {
-            
+            $("#patio")!.innerHTML = "";
+            const patio = ler();
+
+            if(patio.length > 0 )
+            {
+                patio.forEach(veiculo => adicionar(veiculo));
+            }
         }
 
         return{ler, adicionar, remover, salvar, render}
     }
+
+    patio().render();
 
     $("#cadastrar")?.addEventListener("click", () => {
         const nome = $("#nome")?.value;
@@ -62,7 +76,7 @@ interface Veiculo // Similar a uma class
             return;
         }
         else{
-            patio().adicionar({nome, placa, entrada:new Date()});
+            patio().adicionar({nome, placa, entrada:new Date()}, true);
         }
     });
 })();
