@@ -1,0 +1,5 @@
+# Comando DOS para instalação de biblioteca para banco de dados
+npm install mysql --save
+
+# Comando DOS para intalação de servidor com atualização altomatica
+npm instal -g nodemon
