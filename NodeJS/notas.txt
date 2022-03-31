@@ -2,4 +2,7 @@
 npm install mysql --save
 
 # Comando DOS para intalação de servidor com atualização altomatica
-npm instal -g nodemon
+npm instal- -g nodemon
+
+# Comando DOS para intalação de modulo com require automatico para rotas
+npm install consign --save
