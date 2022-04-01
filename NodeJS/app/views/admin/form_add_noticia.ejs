@@ -8,5 +8,20 @@
 </head>
 <body>
 	<h1>Adicionar Notícia</h1>
+	<hr>
+	<form action="/noticias/salvar" method="post">
+		<label for="titulo">Título</label><br>
+		<input type="text" name="titulo" id="titulo" placeholder="Título da Notícia">
+
+		<br>
+
+		<label for="noticia">Notícia</label><br>
+		<textarea name="noticia" id="noticia" cols="30" rows="10"></textarea>
+
+		<br>
+
+		<input type="submit" value="Salvar">
+	</form>
+	<hr>
 </body>
 </html>
