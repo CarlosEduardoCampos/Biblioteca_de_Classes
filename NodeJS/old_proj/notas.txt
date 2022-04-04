@@ -9,3 +9,6 @@ npm install consign --save
 
 # Comando DOS para instalação de modulo que recupera dados post
 npm install body-parser --save
+
+#Comando DOS para instalação de framework de desenvolvimento
+npm install express -save
