@@ -9,6 +9,15 @@
 <body>
 	<h1>Adicionar notícia</h1>
 	<br>
+	<% if(validacao) { %>
+		<ul>
+			<% for(let i = 0; i < validacao.length; i++) { %>
+				<li>
+					<%= validacao[i].msg %>
+				</li>
+			<% } %>
+		</ul>
+	<% } %>
 	<form action="/noticia_salvar" method="post">
 		<label for="titulo">Título</label>
 		<br>
@@ -18,6 +27,15 @@
 		<br>
 		<textarea name="noticia" id="noticia" cols="30" rows="5"></textarea>
 		<br>
+		<label for="resumo">Resumo</label>
+		<br>
+		<input type="text" name="resumo" id="resumo" placeholder="Resunmo da notícia">
+		<br>
+		<label for="autor">Autor</label>
+		<br>
+		<input type="text" name="autor" id="autor" placeholder="Nome Completo">
+		<br>
+		
 		<input type="submit" value="Enviar">
 	</form>
 </body>

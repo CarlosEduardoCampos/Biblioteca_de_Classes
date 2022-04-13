@@ -1,3 +1,6 @@
+#Comando Dos para instalação de modulo que valida dados recebidos
+npm install express-validator --save
+
 # Comando DOS para instalação de biblioteca para banco de dados
 npm install mysql --save
 
