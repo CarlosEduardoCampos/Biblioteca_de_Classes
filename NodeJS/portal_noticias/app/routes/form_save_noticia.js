@@ -8,7 +8,12 @@ module.exports = function(app)
     app.post('/noticia_salvar', function (req, res)
     {
         let noticia = req.body;
-        res.send(noticia);
-        //res.render("admin/form_add_noticia");
+        let connection = app.config.dbConnection();
+        let noticiasModel = app.app.models.noticiasModel;
+
+        noticiasModel.saveNoticia(noticia, connection, function(erro, result)
+        {
+            res.redirect('/noticias');   
+        });
     });
 }
