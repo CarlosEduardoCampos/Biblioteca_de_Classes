@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*Estilo para computadores  e notebooks*/
+body{
+    background-image: url(./backgroud.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-areas: 'tela vazio';
+}
+div.tela_area{
+    background-color: #d1bba6f1;
+    margin: 60px;
+    width: 400px;
+    height: 80%;
+    grid-area: tela;
+    padding: 30px;
+    border-radius: 5%;
+}
+div.login_area{
+    display: grid;
+    grid-template-areas: 'login';
+    text-align: center;
+    color: #4D4F42;
+    width: 75%;
+    margin: auto;
+    text-align: right;
+}
+
+.login_area h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login_area input{
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 20px;
+}
+.login_area label{
+    padding: 5px;
+}
+.login_area p{
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+#btn{
+    background-color: #4D4F42;
+    color: white;
+    font-size: 20px;
+    width: 150px;
+    margin: 30px auto;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(245, 245, 245, 0.575);
+}
+
+#btn:hover{
+    background-color: #328127;
+    transition: 0.5s;
+}
+
+.link{
+    color: #328127;
+}
+
+/*Estilo para celulares ee tabletes*/
+@media(max-width:895px){
+    body{
+        background-image: none;
+        background-color: #ab7a5c;
+        display: block;
+    }
+
+    div.tela_area{
+        background-color: #d1bba6f1;
+        margin: 40px auto;
+        max-width: 400px;
+        height: 600px;
+        padding: 30px;
+        border-radius: 5%;
+    }
+}
+

@@ -8,5 +8,18 @@
 </head>
 <body>
 	<h1>Notícias</h1>
+	<table>
+		<tr>
+			<td>Titulo</td>
+			<td>Noticia</td>
+		</tr>
+
+		<%for( let i = 0; i < noticias.length; i++){%>
+			<tr>
+				<td><%= noticias[i].idNoticias %></td>
+				<td><%= noticias[i].titulo%></td>
+			</tr>
+		<%}%>
+	</table>
 </body>
 </html>
