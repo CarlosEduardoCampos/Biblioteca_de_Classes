@@ -5,9 +5,10 @@ module.exports = function(app)
     app.get('/noticias', function (req, res)
     {  
         let connection = app.config.dbConnection();
-        let noticiasModel = app.app.models.noticiasModel;
+        let noticiasDAO = new app.app.models.NoticiasDAO(connection);
+        
 
-        noticiasModel.getNoticias(connection,function(error, result)
+        noticiasDAO.getNoticias(function(error, result)
         {
             res.render("noticias/noticias",{noticias:result});
         });
@@ -17,10 +18,9 @@ module.exports = function(app)
     app.get('/noticia', function (req, res)
     {
         let connection = app.config.dbConnection();
-        
-        let noticiasModel = app.app.models.noticiasModel;
+        let noticiasDAO = new app.app.models.NoticiasDAO(connection);
 
-        noticiasModel.getNoticia(connection,function(error, result)
+        noticiasDAO.getNoticia(function(error, result)
         {
             res.render("noticias/noticia",{noticia:result});
         });
