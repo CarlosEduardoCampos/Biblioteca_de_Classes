@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notícias</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<h1>Notícias</h1>
+
+	<form action="/nova_noticia" method="get">
+		<button style="background-color: rgb(44, 238, 44); font-size: 15px;">
+			Nova Noticía
+		</button>
+	</form>
+
+	<br><br>
+
+	<table style="padding: 10px; text-align: center;">
+		<tr>
+			<td>Noticia</td>
+			<td></td><!--Botão de visualização-->
+			<td></td><!--Botão de Deletar-->
+		</tr>
+
+		<%for( let i = 0; i < noticias.length; i++){%>
+			<tr>
+				<td><%= noticias[i].titulo%></td>
+				<td>
+					<form action="/noticia/<%=noticias[i].idNoticias%>" method="get">
+						<button style="font-size:24px">
+							<i class="fa fa-eye"></i>
+						</button>
+					</form>
+				</td>
+				<td>
+					<form action="/noticia/editar/<%=noticias[i].idNoticias%>" method="get">
+						<button style="font-size:24px">
+							<i class="fa fa-edit"></i>
+						</button>
+					</form>
+				</td>
+				<td>
+					<form action="/noticia/deletar/<%=noticias[i].idNoticias%>" method="post">
+						<button style="font-size:24px; color:red">
+							<i class="fa fa-trash"></i>
+						</button>
+					</form>
+				</td>
+			</tr>
+		<%}%>
+	</table>
+</body>
+</html>
