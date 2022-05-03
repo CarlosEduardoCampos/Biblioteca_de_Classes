@@ -13,6 +13,13 @@ module.exports.iniciaChat = function (application, req, res)
     else{
         let dataForm = req.body;
         //
-        res.render("chat");
+        application.get('io').emit(
+            'msgParaCliente',
+            {  
+                apelido:dataForm.apelido, 
+                mensagem:'Acabou de entrar no chat.'
+            }
+        );
+        res.render("chat",{dataForm : dataForm});
     }
 }
