@@ -1,4 +1,7 @@
 # Iniciar projeto
+
+-> npm 
+
     -> npx create-react-app (nome do diretorio)
 
 # Simulador de API
