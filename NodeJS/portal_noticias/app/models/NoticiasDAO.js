@@ -23,7 +23,7 @@ NoticiasDAO.prototype.get5UltimasNoticias = function(callback)
 // Deleta uma noticia no banco
 NoticiasDAO.prototype.delNoticia = function(id, callback)
 {    
-    this._connection.query('delete from noticias where idNoticias = ' + id, callback);
+    this._connection.query('delete from noticias where idNoticias = ?', id, callback);
 }
 
 // Função para editar uma noticia !!! ERRO !!!
